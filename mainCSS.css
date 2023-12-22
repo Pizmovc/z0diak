@@ -1,0 +1,131 @@
+canvas {
+			
+            margin: 0px 190px 0px 190px;
+			border: 2px groove DarkSlateGray ;
+			background-color: #C8C8C8;
+    }/*C8C8C8*/
+h1{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-shadow: 2px 2px #006666;
+	color: #00CC66;
+	text-align: center;
+	margin-left: 25px;
+}	
+
+img{
+	margin-left: -5px;
+	margin-top: -10px;
+	margin-bottom: -17px;
+
+}
+	
+body {
+  background-color:grey;
+  font-size: 12px;
+  font-family:  Arial, Helvetica, sans-serif;
+  color:#564b47;  
+  padding:0px;
+  margin:0px;
+}
+
+
+#left {
+position: absolute;
+left: 2px;
+width: 160px;
+color: #564b47;
+margin: 0px; 
+padding: 0px;
+}
+		
+
+ul {
+    font-family: Arial, Verdana;	/*povzeto po: http://www.handy-html.com/create-a-simple-css-dropdown-menu/*/
+    font-size: 14px;				/*dne 25.6.2013*/
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul li {
+
+    display: block;
+    position: relative;
+    float: left;
+}
+li ul {
+	left: 100%; 
+	top:0;
+    display: none;
+}
+ul li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+	min-width: 155px;
+    border-top: 5px solid #F0F0F0;
+    padding: 5px 15px 5px 15px;
+    background: #D0D0D0;
+    margin-left: 1px;
+    white-space: nowrap;
+}
+ul li a:hover {
+background: #D0D0D0;
+}
+li:hover ul {
+    display: block;
+    position: absolute;
+}
+li:hover li {
+    float: none;
+    font-size: 11px;
+}
+li:hover a { background: #D0D0D0; }
+li:hover li a:hover {
+    background: #F5F5F5;
+}
+
+button.css3button {
+	min-width: 150px;							/*povzeto po: http://www.bestcssbuttongenerator.com/ */
+    font-size: 14px;							/*dne 25.6.2013*/
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #050505;
+	padding: 1px 0px 2px 0px; 
+	background: -moz-linear-gradient(
+		top,
+		#d9d6cc 0%,
+		#ffffff 50%,
+		#8f8c84);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#d9d6cc),
+		color-stop(0.50, #ffffff),
+		to(#8f8c84));
+	-moz-border-radius: 13px;
+	-webkit-border-radius: 13px;
+	border-radius: 13px;
+	border: 1px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,1),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,1),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,1),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+		 white-space: nowrap;
+}
+button.css3button2{
+		height: 20px;
+		width: 20px;
+		-moz-border-radius: 55px;
+		border-radius: 55px;
+}
+
+
+
+
