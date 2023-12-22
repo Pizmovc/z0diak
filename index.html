@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="mainCSS.css">
 
     <script type="text/javascript" src="lib/paper.js"></script>
@@ -9,7 +9,7 @@
     <script type="text/paperscript" canvas="myCanvas">
 
 
-    //JS.require('JS.OrderedSet', 'JS.Set');	 // knjiznica za množico
+    //JS.require('JS.OrderedSet', 'JS.Set');	 // knjiznica za mnoĹľico
 
         Path.prototype.vertex = null; // dodajanje novih lastnosti vsem Path objektom
     Path.prototype.edgeStart = null; //
@@ -17,7 +17,7 @@
     Path.prototype.color = null; //
     Path.prototype.father = null;
     Path.prototype.partition = null; //
-    Path.prototype.neighbours = null; // postavitev sosedov na tapravi konstrukt - lažja dostopnost prek klika na canvasu
+    Path.prototype.neighbours = null; // postavitev sosedov na tapravi konstrukt - laĹľja dostopnost prek klika na canvasu
     Path.prototype.image = null;
     Path.prototype.oldPosition = null;
 
@@ -107,7 +107,7 @@
             var content_change;
             //addingContent = false;
             do {
-                content_change = prompt("Vnesi oznako vozlišča!", "");
+                content_change = prompt("Vnesi oznako vozliĹˇÄŤa!", "");
             } while (content_change == "" || content_check(content_change) == false);
             if (content_change != null) {
                 hitResult.item.vertex.content = content_change;
@@ -115,7 +115,7 @@
             }
             //hitResult.item.selected = false;
             //document.getElementById("ButtonRename").style.background='';
-            hitResult = null; // Da odznači, zakaj ne dela select??
+            hitResult = null; // Da odznaÄŤi, zakaj ne dela select??
             paper.view.draw; // ????
         }
 
@@ -142,7 +142,7 @@
                 });
                 VertexTo = null;
                 VertexFrom = null;
-                document.getElementById('area').value = "Vozlišča, ki še niso preslikana, so sledeča: ";
+                document.getElementById('area').value = "VozliĹˇÄŤa, ki Ĺˇe niso preslikana, so sledeÄŤa: ";
                 for (var i = 0; i < Graph.nodes.length; i++)
                     if (Graph.nodes[i].construct.image == 0) document.getElementById('area').value += Graph.nodes[i].construct.vertex.content + "  ";
                 document.getElementById('area').value += "\n" + "Trenutne preslikave avtomorfizma:" + "\n";
@@ -164,7 +164,7 @@
                     for (var j = 0; j < Graph.nodes.length; j++)
                         for (var i = (j + 1) ; i < Graph.nodes.length; i++)
                             if (Graph.nodes[j].construct.image != 0 && Graph.nodes[j].construct.image == Graph.nodes[i].construct.image)
-                                document.getElementById('area').value += "Avtomorfizem ni injektiven saj se vozlišči " + Graph.nodes[j].construct.vertex.content + " in " + Graph.nodes[i].construct.vertex.content + " preslikata v isto vozlišče " + Graph.nodes[j].construct.image.vertex.content + " .\n";
+                                document.getElementById('area').value += "Avtomorfizem ni injektiven saj se vozliĹˇÄŤi " + Graph.nodes[j].construct.vertex.content + " in " + Graph.nodes[i].construct.vertex.content + " preslikata v isto vozliĹˇÄŤe " + Graph.nodes[j].construct.image.vertex.content + " .\n";
                 }
             }
         }
@@ -200,12 +200,12 @@
                 }
             }
             if (Hamilton_found == true) {
-                if (ending_count == 2 && Hamilton_edge_check(Hamilton_edge, 2) == true) document.getElementById('area').value += "->Našli ste Hamiltonovo pot!\n";
-                else if (Hamilton_edge_check(Hamilton_edge, 1) == true && ending_count == 0) document.getElementById('area').value += "->Našli ste Hamiltonov cikel!\n";
+                if (ending_count == 2 && Hamilton_edge_check(Hamilton_edge, 2) == true) document.getElementById('area').value += "->NaĹˇli ste Hamiltonovo pot!\n";
+                else if (Hamilton_edge_check(Hamilton_edge, 1) == true && ending_count == 0) document.getElementById('area').value += "->NaĹˇli ste Hamiltonov cikel!\n";
                 else if (output_state == true) document.getElementById('area').value += "->Izbrano ne predstavlja Hamiltonovo pot ali cikel!\n";
             } else if (output_state == true) {
                 document.getElementById('area').value += "->Izbrano ne predstavlja Hamiltonovo pot ali cikel!\n";
-            } else document.getElementById('area').value = "Vključili ste iskanje Hamiltonove poti/cikla.\nS klikom na poljubno povezavo, le-to dodate v svojo pot/cikel ali pa jo odstranite.\n";
+            } else document.getElementById('area').value = "VkljuÄŤili ste iskanje Hamiltonove poti/cikla.\nS klikom na poljubno povezavo, le-to dodate v svojo pot/cikel ali pa jo odstranite.\n";
         }
         //*****************-Barvanje grafa-*************************//
         if (graph_coloring == true && color_chosen != null && hitResult.item) {
@@ -220,9 +220,9 @@
                 else if (output_state == true) {
                     document.getElementById('area').value += "->Barvanje ni ustrezno!" + "\n";
                 } else {
-                    document.getElementById('area').value = "Vključili ste barvanje grafa. S pomočjo barvne palete lahko sedaj barvate vozlišča.\nKliknite na željeno barvo in lahko pričnete z barvanjem vozlišč!\n";
+                    document.getElementById('area').value = "VkljuÄŤili ste barvanje grafa. S pomoÄŤjo barvne palete lahko sedaj barvate vozliĹˇÄŤa.\nKliknite na Ĺľeljeno barvo in lahko priÄŤnete z barvanjem vozliĹˇÄŤ!\n";
                     if (oddCycle == false && fullGraph == false) {
-                        document.getElementById('area').value += "\nGraf ni lih cikel ali poln graf. Po Brooksovem izreku je torej kromatično število grafa manjše ali enako " + BrooksCount + ".\n";
+                        document.getElementById('area').value += "\nGraf ni lih cikel ali poln graf. Po Brooksovem izreku je torej kromatiÄŤno Ĺˇtevilo grafa manjĹˇe ali enako " + BrooksCount + ".\n";
                     }
                 }
             }
@@ -231,12 +231,12 @@
         if (Dvertex_search == true) {
             if (hitResult.type == 'fill') {
                 //document.getElementById('ButtonRazdaljnaParticija').style.background='';
-                document.getElementById('area').value = "Razdaljna particija je uspešno izrisana!"
+                document.getElementById('area').value = "Razdaljna particija je uspeĹˇno izrisana!"
                 D_partition_B(hitResult.item);
                 OldPosition_exception = false;
                 Dvertex_search = false;
             }
-            else document.getElementById('area').value += "->Izberite vozlišče!\n";
+            else document.getElementById('area').value += "->Izberite vozliĹˇÄŤe!\n";
         }
 
         //*********************-Brisanje povezave-*************//
@@ -274,7 +274,7 @@
 
         }
 
-        //*********-Dodajanje novega vozlišča na Canvas-********//
+        //*********-Dodajanje novega vozliĹˇÄŤa na Canvas-********//
 
         if (addingVertex) {
             Hamilton_vertex[Graph.nodes.length] = 0;
@@ -309,7 +309,7 @@
         if (addingEdge) {
             if (EdgeConstruction) {
                 if (hitResult.item.position == startingPoint.position) {
-                    document.getElementById('area').value += "\n->Izberi drugo vozlišče!";
+                    document.getElementById('area').value += "\n->Izberi drugo vozliĹˇÄŤe!";
                 }
                 else if (hitResult && hitResult.item && hitResult.type == 'fill') {
                     hitResult.item.fillColor = 'red';
@@ -336,7 +336,7 @@
                                 project.activeLayer.insertChild(0, Graph.lines[i]);
                         }
                     } else {
-                        document.getElementById('area').value += "\n->Povezava že obstaja!";
+                        document.getElementById('area').value += "\n->Povezava Ĺľe obstaja!";
                         lineExists = false;
                     }
 
@@ -374,7 +374,7 @@
             path = hitResult.item; // pot postane predmet, na katerega smo kliknili
         }
         if (hitResult !== null) {
-            movePath = hitResult.type == 'fill'; // če je tip zadetka polnilo potem omogoci premik za vektor
+            movePath = hitResult.type == 'fill'; // ÄŤe je tip zadetka polnilo potem omogoci premik za vektor
         }
 
     }
@@ -412,12 +412,12 @@
         }*/
         var hitResult = project.hitTest(event.point, hitOptions);
         project.activeLayer.selected = false;
-        if (hitResult && hitResult.item) {   // če pozicija miške nad elementom (vozlišče/povezava) označi kot izbrano
-            hitResult.item.selected = true;  // pomoč pri brisanju in barvanju ter izbiri elementa na canvasu
+        if (hitResult && hitResult.item) {   // ÄŤe pozicija miĹˇke nad elementom (vozliĹˇÄŤe/povezava) oznaÄŤi kot izbrano
+            hitResult.item.selected = true;  // pomoÄŤ pri brisanju in barvanju ter izbiri elementa na canvasu
         }
     }
 
-    //**************************-Vlečenje miške-************************************//
+    //**************************-VleÄŤenje miĹˇke-************************************//
 
     function onMouseDrag(event) {
         if (addingVertex == false && addingContent == false && addingEdge == false && vertex_removal == false && graph_coloring == false) {
@@ -432,14 +432,14 @@
                     return;
                 }
                 var zacasni2 = path.position + event.delta;
-                if ((zacasni2.x < bounds_width && zacasni2.y < bounds_height) && (zacasni2.x > (view.bounds.x + 10) && zacasni2.y > (view.bounds.y + 10))) { // upoštevanje borderjev
-                    path.position += event.delta; // premakni ozbrani predmet glede na središče za vektor premika miške
+                if ((zacasni2.x < bounds_width && zacasni2.y < bounds_height) && (zacasni2.x > (view.bounds.x + 10) && zacasni2.y > (view.bounds.y + 10))) { // upoĹˇtevanje borderjev
+                    path.position += event.delta; // premakni ozbrani predmet glede na srediĹˇÄŤe za vektor premika miĹˇke
                     path.vertex.position += event.delta; // premakni tudi marker
 
                     if (Key.isDown('control')) {
                         var Aqueue = new Array();
                         var Avertex;
-                        for (var j = 0; j < Graph.nodes.length; j++) {  // začetne postavke
+                        for (var j = 0; j < Graph.nodes.length; j++) {  // zaÄŤetne postavke
                             Graph.nodes[j].construct.color = "white";//
                         }
                         path.color = "gray";
@@ -450,7 +450,7 @@
                             if (Avertex != path) {
                                 Avertex.position += event.delta;
                                 Avertex.vertex.position += event.delta;
-                                for (var i = 0; i < Graph.lines.length; i++) {	// premik vseh povezav glede na izbrano vozlišče
+                                for (var i = 0; i < Graph.lines.length; i++) {	// premik vseh povezav glede na izbrano vozliĹˇÄŤe
                                     if (Graph.lines[i].edgeEnd.vertex.content == Avertex.vertex.content) {
                                         Graph.lines[i].lastSegment.point += event.delta;
                                         if (Graph.lines[i].segments.length == 3) Graph.lines[i].segments[1].point += event.delta / 2;
@@ -469,7 +469,7 @@
                         }
                     }
 
-                    for (var i = 0; i < Graph.lines.length; i++) {	// premik vseh povezav glede na izbrano vozlišče
+                    for (var i = 0; i < Graph.lines.length; i++) {	// premik vseh povezav glede na izbrano vozliĹˇÄŤe
                         if (Graph.lines[i].edgeEnd.vertex.content == path.vertex.content) {
                             Graph.lines[i].lastSegment.point += event.delta;
                             if (Graph.lines[i].segments.length == 3 && Key.isDown('control') == false) {
@@ -488,7 +488,7 @@
                             }
                         }
                     }
-                } else if ((zacasni2.x == bounds_width || zacasni2.y == bounds_height) || (zacasni2.x == (view.bounds.x + 10) || zacasni2.y == (view.bounds.y + 10))) { // vlečenje izven borderja-prekini dejavni premik
+                } else if ((zacasni2.x == bounds_width || zacasni2.y == bounds_height) || (zacasni2.x == (view.bounds.x + 10) || zacasni2.y == (view.bounds.y + 10))) { // vleÄŤenje izven borderja-prekini dejavni premik
                     path.selected = false;
                     path = null;
                     return;
@@ -504,12 +504,12 @@
         document.getElementById('area').value += "\n";
         for (var i = 0; i < Graph.nodes.length; i++) {
             if (Graph.nodes[i].construct.image.neighbours.length != Graph.nodes[i].construct.neighbours.length) {
-                document.getElementById('area').value += "Vozlišče " + Graph.nodes[i].construct.vertex.content + " stopnje " + Graph.nodes[i].construct.neighbours.length + " smo preslikali v vozlišče " + Graph.nodes[i].construct.image.vertex.content + ", ki je stopnje " + Graph.nodes[i].construct.image.neighbours.length + ".\n";
+                document.getElementById('area').value += "VozliĹˇÄŤe " + Graph.nodes[i].construct.vertex.content + " stopnje " + Graph.nodes[i].construct.neighbours.length + " smo preslikali v vozliĹˇÄŤe " + Graph.nodes[i].construct.image.vertex.content + ", ki je stopnje " + Graph.nodes[i].construct.image.neighbours.length + ".\n";
                 return false;
             }
             for (var j = 0; j < Graph.nodes[i].construct.neighbours.length; j++) {
                 if (Graph.nodes[i].construct.image.neighbours.indexOf(Graph.nodes[i].construct.neighbours[j].image) == -1) {
-                    document.getElementById('area').value += "Vozlišči " + Graph.nodes[i].construct.vertex.content + " in " + Graph.nodes[i].construct.neighbours[j].vertex.content + " pri izbranem avtomorfizmu več nista soseda!\n";
+                    document.getElementById('area').value += "VozliĹˇÄŤi " + Graph.nodes[i].construct.vertex.content + " in " + Graph.nodes[i].construct.neighbours[j].vertex.content + " pri izbranem avtomorfizmu veÄŤ nista soseda!\n";
                     return false;
                 }
             }
@@ -567,7 +567,7 @@
     function Connected(Graph) {
         var Cqueue = new Array();
         var Cvertex;
-        for (var j = 1; j < Graph.nodes.length; j++) {  // začetne postavke
+        for (var j = 1; j < Graph.nodes.length; j++) {  // zaÄŤetne postavke
             Graph.nodes[j].construct.color = "white";//
         }
         Graph.nodes[0].construct.color = "gray";
@@ -635,7 +635,7 @@
     //**********************-Pregled oznak (funkcija)-**************************************************************//
     function content_check(vertex_content) {
         for (var j = 0; j < Graph.nodes.length; j++) {
-            if (Graph.nodes[j].construct.vertex.content == vertex_content) return false; // ali oznaka že obstaja
+            if (Graph.nodes[j].construct.vertex.content == vertex_content) return false; // ali oznaka Ĺľe obstaja
         }
         return true;
     }
@@ -679,7 +679,7 @@
                     //*Vozlisca*//
                     //* Konstrukcija na canvasu - POZICIJE*//
                     var coordinates = new Point;
-                    if (coordinates_exist == true) { // če so koordinate beležene jih upoštevaj, čene določi random pozicijo vozlišča
+                    if (coordinates_exist == true) { // ÄŤe so koordinate beleĹľene jih upoĹˇtevaj, ÄŤene doloÄŤi random pozicijo vozliĹˇÄŤa
                         coordinates.x = parseInt(pomozni2_str.substr(pomozni2_str.indexOf("[") + 1, pomozni2_str.indexOf(",") - 1));
                         pomozni2_str = pomozni2_str.substr(pomozni2_str.indexOf(",") + 1);
                         coordinates.y = parseInt(pomozni2_str.substr(0, pomozni2_str.indexOf("]")));
@@ -730,7 +730,7 @@
                     var start = null;
                     var end = null;
                     pomozni_str = contents.substr(0, contents.indexOf("}"));
-                    for (var j = 0; j < Graph.nodes.length; j++) {  // določitev koordinat za risanje povezave
+                    for (var j = 0; j < Graph.nodes.length; j++) {  // doloÄŤitev koordinat za risanje povezave
                         if (start != null && end != null) break;
                         //document.getElementById('area').value += pomozni_str.substr(pomozni_str.indexOf("{")+1,pomozni_str.indexOf(",")-1)+","+pomozni_str.substr(pomozni_str.indexOf(",")+1)+" ";
                         if (Graph.nodes[j].construct.vertex.content == pomozni_str.substr(pomozni_str.indexOf("{") + 1, pomozni_str.indexOf(",") - 1)) start = Graph.nodes[j];
@@ -754,12 +754,12 @@
                 }
 
                 if (coordinates_exist == false) { Draw_circular(0); }
-                document.getElementById('area').value = "Graf je naložen!";
+                document.getElementById('area').value = "Graf je naloĹľen!";
                 Graph_loaded = true;
             }
             reader.readAsText(f); // beri file kot text
         } else {
-            alert("Datoteka ni bila naložena!");
+            alert("Datoteka ni bila naloĹľena!");
         }
     }
     document.getElementById('fileinput').addEventListener('change', readSingleFile, false); // povezava na input type
@@ -768,7 +768,7 @@
     saveFile = function () {
         var string_to_file = "";
         if (Graph_loaded) {
-            document.getElementById('area').value = "Spodaj generirana notacija predstavlja obstoječi graf. Notacijo kopirajte v tekstovno datoteko in shranite.\n\n";
+            document.getElementById('area').value = "Spodaj generirana notacija predstavlja obstojeÄŤi graf. Notacijo kopirajte v tekstovno datoteko in shranite.\n\n";
             for (var j = 0; j < Graph.nodes.length; j++) {
                 if (j == Graph.nodes.length - 1) {
                     document.getElementById('area').value += Graph.nodes[j].construct.vertex.content + ".";
@@ -858,12 +858,12 @@
 
             addingVertex = true;
             document.getElementById("ButtonNewVertex").style.background = 'red';
-            document.getElementById('area').value = "Izbrana je opcija za dodajanje novih vozlišč. \nS klikom na canvas določimo mesto kjer bo novo vozlišče generirano.";
+            document.getElementById('area').value = "Izbrana je opcija za dodajanje novih vozliĹˇÄŤ. \nS klikom na canvas doloÄŤimo mesto kjer bo novo vozliĹˇÄŤe generirano.";
         }
         else if (Dp_state == false && Hamilton_search == false) {
             addingVertex = false;
             document.getElementById("ButtonNewVertex").style.background = '';
-            document.getElementById('area').value = "Dodajanje vozlišč izključeno."
+            document.getElementById('area').value = "Dodajanje vozliĹˇÄŤ izkljuÄŤeno."
         }
     }
     //*************************- Dodajanje povezav (button) -***********************************//
@@ -872,13 +872,13 @@
             clearButtons(1);
             addingEdge = true;
             document.getElementById("ButtonNewEdge").style.background = 'red';
-            document.getElementById('area').value = "Izbrana je opcija za dodajanje novih povezav. \nS prvim klikom na vozlišče izberemo začetek nove povezave. Nato izberemo se vozlišče, kjer se povezava zaključi.\nDvojnih povezav ne moremo ustvariti, prav tako ne more imeti povezava začetek in konec v istem vozlišču.";
+            document.getElementById('area').value = "Izbrana je opcija za dodajanje novih povezav. \nS prvim klikom na vozliĹˇÄŤe izberemo zaÄŤetek nove povezave. Nato izberemo se vozliĹˇÄŤe, kjer se povezava zakljuÄŤi.\nDvojnih povezav ne moremo ustvariti, prav tako ne more imeti povezava zaÄŤetek in konec v istem vozliĹˇÄŤu.";
         }
         else if (Dp_state == false && Hamilton_search == false) {
             addingEdge = false;
             clearButtons(7); // zbrisat??
             document.getElementById("ButtonNewEdge").style.background = '';
-            document.getElementById('area').value = "Dodajanje povezav izključeno.";
+            document.getElementById('area').value = "Dodajanje povezav izkljuÄŤeno.";
         }
 
     }
@@ -888,12 +888,12 @@
             for (var j = 0; j < Graph.nodes.length; j++)
                 if (typeof (Graph.nodes[j].construct) != "undefined") Graph.nodes[j].construct.vertex.visible = false;
             description_system = true;
-            document.getElementById('area').value = "Oznake vozlišč so skrite.";
+            document.getElementById('area').value = "Oznake vozliĹˇÄŤ so skrite.";
         } else if (description_system == true) {
             for (var j = 0; j < Graph.nodes.length; j++)
                 if (typeof (Graph.nodes[j].construct) != "undefined") Graph.nodes[j].construct.vertex.visible = true;
             description_system = false;
-            document.getElementById('area').value = "Oznake vozlišč so vidne.";
+            document.getElementById('area').value = "Oznake vozliĹˇÄŤ so vidne.";
         }
     }
     //*************************- Random sprememba koordinat vozlisc (button) -***********************************//
@@ -902,7 +902,7 @@
             Graph_flatten(Graph);
             Dp_state = false;
         }
-        var bounds_width = view.bounds.width - 10 - (-view.bounds.x); // dinamično spreminjanje mej canvasa
+        var bounds_width = view.bounds.width - 10 - (-view.bounds.x); // dinamiÄŤno spreminjanje mej canvasa
         var bounds_height = view.bounds.height - 10 - (-view.bounds.y);
         for (var j = 0; j < Graph.nodes.length; j++) {
             Graph.nodes[j].construct.position = new Point(Math.floor((view.bounds.x + 10 + Math.random() * (bounds_width - view.bounds.x - 10))), Math.floor((view.bounds.y + 10 + Math.random() * (bounds_height - view.bounds.y - 10))));
@@ -927,7 +927,7 @@
             if (graph_coloring == false) {
                 clearButtons(3);
                 graph_coloring = true;
-                document.getElementById('area').value = "Vključili ste barvanje grafa. S pomočjo barvne palete lahko sedaj barvate vozlišča.\nKliknite za željeno barvo in lahko pričnete z barvanjem vozlišč!\n";
+                document.getElementById('area').value = "VkljuÄŤili ste barvanje grafa. S pomoÄŤjo barvne palete lahko sedaj barvate vozliĹˇÄŤa.\nKliknite za Ĺľeljeno barvo in lahko priÄŤnete z barvanjem vozliĹˇÄŤ!\n";
                 document.getElementById("ButtonColorGraph").style.background = 'red'; // prikazi paleto
                 document.getElementById("button5").style.visibility = 'visible';
                 document.getElementById("button6").style.visibility = 'visible';
@@ -958,12 +958,12 @@
                         if (Graph.nodes[j].construct.neighbours.length != (Graph.nodes.length - 1)) fullGraph = false;
                     }
                     if (oddCycle == false && fullGraph == false) {
-                        document.getElementById('area').value += "\nGraf ni lih cikel ali poln graf. Po Brooksovem izreku je torej kromatično število grafa manjše ali enako " + BrooksCount + ".\n";
+                        document.getElementById('area').value += "\nGraf ni lih cikel ali poln graf. Po Brooksovem izreku je torej kromatiÄŤno Ĺˇtevilo grafa manjĹˇe ali enako " + BrooksCount + ".\n";
                     }
                 }
             } else {
                 graph_coloring = false;
-                document.getElementById('area').value = "Barvanje grafa je izključeno.";
+                document.getElementById('area').value = "Barvanje grafa je izkljuÄŤeno.";
                 document.getElementById("ButtonColorGraph").style.background = '';
                 document.getElementById("button5").style.visibility = 'hidden'; // skrij paleto
                 document.getElementById("button6").style.visibility = 'hidden';
@@ -1004,13 +1004,13 @@
                 bipartite_state = true;
                 Hamilton_search = true;
                 clearButtons(4);
-                document.getElementById('area').value = "Vključili ste iskanje Hamiltonove poti/cikla.\nS klikom na poljubno povezavo, le-to dodate v svojo pot/cikel ali pa jo odstranite.\n";
+                document.getElementById('area').value = "VkljuÄŤili ste iskanje Hamiltonove poti/cikla.\nS klikom na poljubno povezavo, le-to dodate v svojo pot/cikel ali pa jo odstranite.\n";
                 document.getElementById("ButtonHamilton").style.background = 'red';
                 //for (var j = 0; j < Graph.nodes.length; j++) Graph.nodes[j].construct.blendMode = 'normal'; // izkljucitev prekrivanja zaradi povezav
             } else {
                 Hamilton_edge.length = 0;
                 Hamilton_search = false;
-                document.getElementById('area').value = "Iskanje Hamiltonove poti/cikla izključeno.";
+                document.getElementById('area').value = "Iskanje Hamiltonove poti/cikla izkljuÄŤeno.";
                 document.getElementById("ButtonHamilton").style.background = '';
                 //for (var j = 0; j < Graph.nodes.length; j++) Graph.nodes[j].construct.blendMode = "exclusion"; // ponovna vkljucitev po izklopu
                 for (var j = 0; j < Graph.lines.length; j++) Graph.lines[j].strokeColor = 'black'; // umaknemo izbrane - barvane povezave
@@ -1023,7 +1023,7 @@
     Bipartite = function () { // podobno kot razdaljna particija
         var Bqueue = new Array();
         var Bvertex;
-        for (var j = 0; j < Graph.nodes.length; j++) {  // začetne postavke
+        for (var j = 0; j < Graph.nodes.length; j++) {  // zaÄŤetne postavke
             Graph.nodes[j].construct.color = "white";//
             Graph.nodes[j].construct.partition = 0;//
         }
@@ -1065,7 +1065,7 @@
         //for (var i = 0; i < Graph.nodes.length ; i++) Graph.nodes[i].construct.blendMode = 'normal';
 
         var stack = new Array();
-        for (var j = 0; j < Graph.nodes.length; j++) {  // začetne postavke
+        for (var j = 0; j < Graph.nodes.length; j++) {  // zaÄŤetne postavke
             Graph.nodes[j].construct.color = "white";//
             Graph.nodes[j].construct.father = null;
             Graph.nodes[j].construct.partition = 0;//
@@ -1171,7 +1171,7 @@
             if (Connected(Graph) == true) {
                 Dvertex_search = true;
                 Distance_part_state = true;
-                document.getElementById('area').value = "Izbrali ste opcijo za izris razdaljne particije.\nZ naslednjih klikom izberite začetno vozlišče!\n";
+                document.getElementById('area').value = "Izbrali ste opcijo za izris razdaljne particije.\nZ naslednjih klikom izberite zaÄŤetno vozliĹˇÄŤe!\n";
                 document.getElementById('ButtonRazdaljnaParticija').style.background = 'red';
             } else window.alert("Graf ni povezan!");
         } else {
@@ -1198,7 +1198,7 @@
     D_partition_B = function (Start_V) {
         var Dqueue = new Array(); 	 // vrsta za sprehod cez graf
         var Dvertex;				// zacetno vozlisce
-        for (var j = 0; j < Graph.nodes.length; j++) {  // začetne postavke za vsa vozlisca razen zacetnega
+        for (var j = 0; j < Graph.nodes.length; j++) {  // zaÄŤetne postavke za vsa vozlisca razen zacetnega
             Graph.nodes[j].construct.color = "white";//za ugotavljanje obiskanosti
             Graph.nodes[j].construct.partition = 0;// za dolocitev particije in izrisa
         }
@@ -1242,7 +1242,7 @@
             }
         }
         Partition_positioning(); // funkcija - izris povezav znotraj particij - krivulje
-        document.getElementById('area').value += "\n" + "\n" + "Kardinalnosti i-tih soseščin:" + "\n" + "i   Kardninalnost" + "\n" + "-----------------" + "\n";
+        document.getElementById('area').value += "\n" + "\n" + "Kardinalnosti i-tih soseĹˇÄŤin:" + "\n" + "i   Kardninalnost" + "\n" + "-----------------" + "\n";
         for (var j = 0; j < partition_cardinality.length; j++) document.getElementById('area').value += (j + 1) + " -> " + partition_cardinality[j] + "\n";
 
 
@@ -1312,7 +1312,7 @@
     }
     //*******************************-Zoom (buttons)-************************************************//
     Zoom = function (action) {
-        if (Graph_loaded == true) { // vedno pogledamo ali je že kaj na canvasu
+        if (Graph_loaded == true) { // vedno pogledamo ali je Ĺľe kaj na canvasu
             var zoom_test = view.zoom - 0.2; // pomozni sprem. za spremljanje zooma
             var zoom_test2 = view.zoom + 0.2;
             if (action == '-') {
@@ -1368,7 +1368,7 @@
             project.activeLayer.insertChild(0, Graph.lines[i]);
         }
     }
-    //*******************************-Nariši cirkulant izbrane dolžine (button)-************************************************//
+    //*******************************-NariĹˇi cirkulant izbrane dolĹľine (button)-************************************************//
     Draw_Circulant = function () {
         clearButtons(0);
         var v_number = 0;
@@ -1380,7 +1380,7 @@
             v_number = parseInt(v_number);
         } while (v_number < 1 || v_number > 40 || isNaN(v_number));
         document.getElementById('area').value = "Circ(" + v_number + ", S) \n";
-        document.getElementById('area').value += "Sledi naštevanje elementov množice S. Naštevanje končamo z vnosom -1.\n";
+        document.getElementById('area').value += "Sledi naĹˇtevanje elementov mnoĹľice S. NaĹˇtevanje konÄŤamo z vnosom -1.\n";
         do {
             do {
                 z_number = prompt("Vnesi k =", "");
@@ -1389,7 +1389,7 @@
             } while (z_number < -1 || isNaN(z_number) || z_number >= v_number);
             if (z_number != -1) k_number.push(z_number);
             document.getElementById('area').value = "Circ(" + v_number + ", S) \n";
-            document.getElementById('area').value += "Sledi naštevanje elementov množice S. Naštevanje končamo z vnosom -1.\n";
+            document.getElementById('area').value += "Sledi naĹˇtevanje elementov mnoĹľice S. NaĹˇtevanje konÄŤamo z vnosom -1.\n";
             document.getElementById('area').value += "S = {";
             for (var i = 0; i < k_number.length ; i++) {
                 if (i == 0) document.getElementById('area').value += "+-" + k_number[i];
@@ -1452,12 +1452,12 @@
         }
 
     }
-    //*******************************-Nariši cikel izbrane dolžine (button)-************************************************//
+    //*******************************-NariĹˇi cikel izbrane dolĹľine (button)-************************************************//
     Draw_cycle = function () {
         clearButtons(0);
         var v_number = 0;
         do {
-            v_number = prompt("Vnesi dolžino cikla!", "");
+            v_number = prompt("Vnesi dolĹľino cikla!", "");
             if (v_number == null) return;
             v_number = parseInt(v_number);
         } while (v_number < 3 || v_number > 40 || isNaN(v_number));
@@ -1491,12 +1491,12 @@
             Draw_circular(0);
         }
     }
-    //*******************************-Nariši poln graf (button)-************************************************//
+    //*******************************-NariĹˇi poln graf (button)-************************************************//
     Draw_complete = function () {
         clearButtons(0);
         var v_number = 0;
         do {
-            v_number = prompt("Vnesi število vozlišč polnega grafa!", "");
+            v_number = prompt("Vnesi Ĺˇtevilo vozliĹˇÄŤ polnega grafa!", "");
             if (v_number == null) return;
             v_number = parseInt(v_number);
         } while (v_number < 3 || v_number > 40 || isNaN(v_number));
@@ -1532,7 +1532,7 @@
             Draw_circular(0);
         }
     }
-    //*******************************-Nariši GPG(button)-************************************************//
+    //*******************************-NariĹˇi GPG(button)-************************************************//
     Draw_petersen = function () {
         clearButtons(0);
         var v_number = 0;
@@ -1600,12 +1600,12 @@
             Draw_GPG(0);
         }
     }
-    //*******************************-Nariši Pot(button)-************************************************//
+    //*******************************-NariĹˇi Pot(button)-************************************************//
     Draw_gpath = function () {
         clearButtons(0);
         var v_number = 100;
         do {
-            v_number = prompt("Vnesi dolžino poti!", "");
+            v_number = prompt("Vnesi dolĹľino poti!", "");
             if (v_number == null) return;
             v_number = parseInt(v_number);
         } while (v_number < 1 || v_number > 40 || isNaN(v_number));
@@ -1656,10 +1656,10 @@
             if (Aut_search == false) {
                 Aut_search = true;
                 clearButtons(6);
-                document.getElementById('area').value = "Izbrana je opcija za iskanje avtomorfizma.\nAvtomorfizem iščemo tako, da prvo izberemo vozlišče, ki ga želimo preslikati. Ko to naredimo izberemo še vozlišče v katerega naj se preslika prej izbrano vozlišče.\nTako preslikamo vsa vozlišča danega grafa. V primeru, da vozlišče želimo preslikati drugam, ga enostavno ponovno preslikamo v neko drugo vozlišče.\n";
+                document.getElementById('area').value = "Izbrana je opcija za iskanje avtomorfizma.\nAvtomorfizem iĹˇÄŤemo tako, da prvo izberemo vozliĹˇÄŤe, ki ga Ĺľelimo preslikati. Ko to naredimo izberemo Ĺˇe vozliĹˇÄŤe v katerega naj se preslika prej izbrano vozliĹˇÄŤe.\nTako preslikamo vsa vozliĹˇÄŤa danega grafa. V primeru, da vozliĹˇÄŤe Ĺľelimo preslikati drugam, ga enostavno ponovno preslikamo v neko drugo vozliĹˇÄŤe.\n";
                 document.getElementById("ButtonAut").style.background = 'red';
                 for (var j = 0; j < Graph.nodes.length; j++) Graph.nodes[j].construct.image = 0;
-                document.getElementById('area').value += "\nVozlišča, ki še niso preslikana, so sledeča: ";
+                document.getElementById('area').value += "\nVozliĹˇÄŤa, ki Ĺˇe niso preslikana, so sledeÄŤa: ";
                 for (var i = 0; i < Graph.nodes.length; i++)
                     if (Graph.nodes[i].construct.image == 0) document.getElementById('area').value += Graph.nodes[i].construct.vertex.content + "  ";
             } else {
@@ -1672,7 +1672,7 @@
                 }
                 VertexTo = null;
                 VertexFrom = null;
-                document.getElementById('area').value = "Iskanje avtomorfizma izključeno.";
+                document.getElementById('area').value = "Iskanje avtomorfizma izkljuÄŤeno.";
                 document.getElementById("ButtonAut").style.background = '';
             }
         }
@@ -1773,27 +1773,27 @@
 
 
     //*************************- Izpis zaporedja stopenj -************************************//
-    // Funkcija za izračun in prikaz zaporedja stopenj grafa
+    // Funkcija za izraÄŤun in prikaz zaporedja stopenj grafa
     ZaporedjeStopenj = function (silent) {
         if (Graph_loaded) {
-            // Inicializiramo tabelo, ki bo vsabova stopnje vozlišč
+            // Inicializiramo tabelo, ki bo vsabova stopnje vozliĹˇÄŤ
             var zapoStopenj = new Array();
-            // Shranimo si število sosedov posameznega vozlišča
+            // Shranimo si Ĺˇtevilo sosedov posameznega vozliĹˇÄŤa
             for (var i = 0; i < Graph.nodes.length; i++) {
                 zapoStopenj.push(Graph.nodes[i].construct.neighbours.length);
             }
-            // Sortiramo seznam od največjega do najmanjšega elementa
+            // Sortiramo seznam od najveÄŤjega do najmanjĹˇega elementa
             zapoStopenj = zapoStopenj.sort(function (a, b) { return b - a; });
             // Inicializiramo niz za prikaz uporabniku
             var zaporedjeText = new String("");
-            // V niz nanizamo zaporedje stopenj, ločena z vejicami
+            // V niz nanizamo zaporedje stopenj, loÄŤena z vejicami
             for (var i = 0; i < Graph.nodes.length; i++) {
                 if (zaporedjeText != "") {
                     zaporedjeText += ", ";
                 }
                 zaporedjeText += zapoStopenj[i];
             }
-            // Prikažemo zaporedje stopenj uporabniku
+            // PrikaĹľemo zaporedje stopenj uporabniku
             if (silent === true) {
                 return zapoStopenj
             }
@@ -1925,10 +1925,10 @@
                 }
             }, vertices);
             if (girthOfG === Infinity) {
-                document.getElementById('area').value = "Graf nima nobenega cikla. Njegova ožina je zato enaka neskončno.";
+                document.getElementById('area').value = "Graf nima nobenega cikla. Njegova oĹľina je zato enaka neskonÄŤno.";
             }
             else {
-                document.getElementById('area').value = "Ožina grafa je enaka " + girthOfG + ".";
+                document.getElementById('area').value = "OĹľina grafa je enaka " + girthOfG + ".";
 
                 // We set the blend mode, so that the nodes and lines do not overlap
                 //for (var i = 0; i < Graph.nodes.length ; i++) Graph.nodes[i].construct.blendMode = 'normal';
@@ -2055,7 +2055,7 @@
                 //ozina_premer_grafa = true;
             }
             else {
-                document.getElementById('area').value = "Graf ni povezan, zato je njegov premer enak neskončno.";
+                document.getElementById('area').value = "Graf ni povezan, zato je njegov premer enak neskonÄŤno.";
             }
         }
     }
@@ -2077,12 +2077,12 @@
     IzrekPosa = function () {
         if (Graph_loaded) {
             if (Graph.nodes.length < 3) {
-                document.getElementById('area').value = "Graf ima manj kot tri vozlišča. Ne morem preveriti veljavnosti Posejevega izreka.";
+                document.getElementById('area').value = "Graf ima manj kot tri vozliĹˇÄŤa. Ne morem preveriti veljavnosti Posejevega izreka.";
                 return;
             }
             // Pridobimo zaporedje stopenj
             var zaporedjeStopenj = ZaporedjeStopenj(true);
-            // Ga obrnemo, tako da je najmanjše število na začetku (npr [2,4,5])
+            // Ga obrnemo, tako da je najmanjĹˇe Ĺˇtevilo na zaÄŤetku (npr [2,4,5])
             zaporedjeStopenj.reverse();
             // Spremenljivka v kateri hranimo stevilo vozlisc, katerih stopnja je najvec k
             var steviloVozlisc = 0;
@@ -2100,10 +2100,10 @@
             }
 
             if (zadostuje) {
-                document.getElementById('area').value += "Graf zadošča osnovnemu pogoju izreka Posa!";
+                document.getElementById('area').value += "Graf zadoĹˇÄŤa osnovnemu pogoju izreka Posa!";
                 // Preverimo ali gre za graf z liho stopnjo
                 if (Graph.nodes.length % 2 === 1) {
-                    document.getElementById('area').value += "\nTa graf ima liho število vozlišč, zato mora zadoščati tudi dodatnemu pogoju izreka Posa."
+                    document.getElementById('area').value += "\nTa graf ima liho Ĺˇtevilo vozliĹˇÄŤ, zato mora zadoĹˇÄŤati tudi dodatnemu pogoju izreka Posa."
                     steviloVozlisc = 0;
                     // Se sprehodimo cez vozlisca grafa in prestejemo vozlisca, ki ustrezajo pogoju
                     for (var i = 0; i < Graph.nodes.length; i++) {
@@ -2113,18 +2113,18 @@
                     }
                     // Obvestimo uporabnika o izpolnitvi
                     if (steviloVozlisc <= (Graph.nodes.length - 1) / 2) {
-                        document.getElementById('area').value += "\nGraf zadošča dodatnemu pogoju izreka Posa.";
-                        document.getElementById('area').value += "\nGraf zadošča vsem pogojem izreka Posa!";
+                        document.getElementById('area').value += "\nGraf zadoĹˇÄŤa dodatnemu pogoju izreka Posa.";
+                        document.getElementById('area').value += "\nGraf zadoĹˇÄŤa vsem pogojem izreka Posa!";
                     }
                     else {
-                        document.getElementById('area').value += "\nGraf NE zadošča dodatnemu pogoju izreka Posa.";
-                        document.getElementById('area').value += "\nGraf NE zadošča vsem pogojem izreka Posa!";
+                        document.getElementById('area').value += "\nGraf NE zadoĹˇÄŤa dodatnemu pogoju izreka Posa.";
+                        document.getElementById('area').value += "\nGraf NE zadoĹˇÄŤa vsem pogojem izreka Posa!";
                         zadostuje = false;
                     }
                 }
             }
             else {
-                document.getElementById('area').value += "Graf NE zadošča osnovnemu pogoju izreka Posa!";
+                document.getElementById('area').value += "Graf NE zadoĹˇÄŤa osnovnemu pogoju izreka Posa!";
                 return;
             }
         }
@@ -2133,7 +2133,7 @@
     IzrekDirac = function () {
         if (Graph_loaded) {
             if (Graph.nodes.length < 3) {
-                document.getElementById('area').value = "Graf ima manj kot tri vozlišča. Ne morem preveriti veljavnosti Diracovega izreka.";
+                document.getElementById('area').value = "Graf ima manj kot tri vozliĹˇÄŤa. Ne morem preveriti veljavnosti Diracovega izreka.";
                 return;
             }
             //var zadostuje = true;
@@ -2148,10 +2148,10 @@
             //    }
             //}
             if (zaporedjeStopenj[0] >= zaporedjeStopenj.length/2) {
-                document.getElementById('area').value += "\nGraf zadošča pogojem Diracovega izreka.";
+                document.getElementById('area').value += "\nGraf zadoĹˇÄŤa pogojem Diracovega izreka.";
             }
             else {
-                document.getElementById('area').value += "\nGraf NE zadošča pogojem Diracovega izreka.";
+                document.getElementById('area').value += "\nGraf NE zadoĹˇÄŤa pogojem Diracovega izreka.";
             }
         }
     }
@@ -2159,7 +2159,7 @@
     IzrekOrej = function () {
         if (Graph_loaded) {
             if (Graph.nodes.length < 3) {
-                document.getElementById('area').value = "Graf ima manj kot tri vozlišča. Ne morem preveriti veljavnosti Diracovega izreka.";
+                document.getElementById('area').value = "Graf ima manj kot tri vozliĹˇÄŤa. Ne morem preveriti veljavnosti Diracovega izreka.";
                 return;
             }
             var pregledani = new Array();
@@ -2173,7 +2173,7 @@
                     sosedi[vozlisca[i]].push(Graph.nodes[i].construct.neighbours[j].vertex.content);
                 }
             }
-            //document.getElementById('area').value += "Vsota poljubnega para nesosednjih vozlišč mora biti večja ali enaka stopnji grafa, tedaj graf premore Hamiltonov cikel.";
+            //document.getElementById('area').value += "Vsota poljubnega para nesosednjih vozliĹˇÄŤ mora biti veÄŤja ali enaka stopnji grafa, tedaj graf premore Hamiltonov cikel.";
             var zadosca = true;
             // Gremo cez vsa vozlisca grafa
             for (var i = 0; i < vozlisca.length; i++) {
@@ -2183,14 +2183,14 @@
                     var B = vozlisca[j];
                     // Preverimo, da ne gre za isto vozlisce, da tocke B nismo ze pregledali in da A in B nista sosednji vozlisci
                     if (A !== B && pregledani.indexOf(B) === -1 && sosedi[A].indexOf(B) === -1) {
-                        //document.getElementById('area').value += "\nVozlišči " + A + " in " + B + " imata vsoto stopenj";
-                        // Če vsota stopenj vozlisc A in B enaka ali vecja od stopnje grafa, potem graf ne zadosca pogojem Orejevega izreka
+                        //document.getElementById('area').value += "\nVozliĹˇÄŤi " + A + " in " + B + " imata vsoto stopenj";
+                        // ÄŚe vsota stopenj vozlisc A in B enaka ali vecja od stopnje grafa, potem graf ne zadosca pogojem Orejevega izreka
                         if (sosedi[A].length + sosedi[B].length < vozlisca.length) {
-                            //document.getElementById('area').value += " manjšo od stopnje grafa. NI OK!";
+                            //document.getElementById('area').value += " manjĹˇo od stopnje grafa. NI OK!";
                             zadosca = false;
                         }
                         else {
-                            //document.getElementById('area').value += " večjo ali enako stopnji grafa. OK!";
+                            //document.getElementById('area').value += " veÄŤjo ali enako stopnji grafa. OK!";
                         }
                     }
                 }
@@ -2198,10 +2198,10 @@
                 pregledani.push(A);
             }
             if (zadosca) {
-                document.getElementById('area').value += "\nGraf zadošča pogojem Orejevega izreka!";
+                document.getElementById('area').value += "\nGraf zadoĹˇÄŤa pogojem Orejevega izreka!";
             }
             else {
-                document.getElementById('area').value += "\nGraf NE zadošča pogojem Orejevega izreka!";
+                document.getElementById('area').value += "\nGraf NE zadoĹˇÄŤa pogojem Orejevega izreka!";
             }
         }
     }
@@ -2209,7 +2209,7 @@
     IzrekPosaDiraOrej = function () {
         if (Graph_loaded) {
             if (Graph.nodes.length < 3) {
-                document.getElementById('area').value = "Graf ima manj kot tri vozlišča. Ne morem preveriti veljavnosti teh treh izrekov.";
+                document.getElementById('area').value = "Graf ima manj kot tri vozliĹˇÄŤa. Ne morem preveriti veljavnosti teh treh izrekov.";
                 return;
             }
             document.getElementById('area').value = "";
@@ -2220,28 +2220,28 @@
     }
     </script>
     <title>z0diak</title>
-    <meta name="author" content="Luka Jurković">
+    <meta name="author" content="Luka JurkoviÄ‡">
 </head>
 <body>
     <div id="left">
         <h1><img src="Zodiak.png"></h1>
         <ul id="MenuNaloziShrani">
             <li>
-                <a href="#" style="color:black">Naloži/shrani graf</a>
+                <a href="#" style="color:black">NaloĹľi/shrani graf</a>
                 <ul>
                     <li><a href="#" onclick="saveFile()" style="color:black">Shrani graf</a></li>
-                    <li><a href="javascript:onLoad();" style="color:black">Naloži graf</a></li>
+                    <li><a href="javascript:onLoad();" style="color:black">NaloĹľi graf</a></li>
                 </ul>
         </ul>
         <ul id="MenuDruzineGrafov">
             <li>
-                <a href="#" style="color:black">Osnovne družine grafov</a>
+                <a href="#" style="color:black">Osnovne druĹľine grafov</a>
                 <ul>
-                    <li><a href="#" onclick="Draw_cycle()" style="color:black">Izriši cikel</a></li>
-                    <li><a href="#" onclick="Draw_Circulant()" style="color:black">Izriši cirkulant</a></li>
-                    <li><a href="#" onclick="Draw_complete()" style="color:black">Izriši poln graf</a></li>
-                    <li><a href="#" onclick="Draw_gpath()" style="color:black">Izriši pot</a></li>
-                    <li><a href="#" onclick="Draw_petersen()" style="color:black">Izriši GPG</a></li>
+                    <li><a href="#" onclick="Draw_cycle()" style="color:black">IzriĹˇi cikel</a></li>
+                    <li><a href="#" onclick="Draw_Circulant()" style="color:black">IzriĹˇi cirkulant</a></li>
+                    <li><a href="#" onclick="Draw_complete()" style="color:black">IzriĹˇi poln graf</a></li>
+                    <li><a href="#" onclick="Draw_gpath()" style="color:black">IzriĹˇi pot</a></li>
+                    <li><a href="#" onclick="Draw_petersen()" style="color:black">IzriĹˇi GPG</a></li>
                 </ul>
         </ul>
 
@@ -2251,7 +2251,7 @@
                 <ul>
                     <li><a href="#" onclick="Bipartite()" style="color:black">Dvodelnost</a></li>
                     <li><a href="#" onclick="description()" style="color:black">Oznake(on/off)</a></li>
-                    <li><a href="#" onclick="shuffle()" style="color:black">Premešaj</a></li>
+                    <li><a href="#" onclick="shuffle()" style="color:black">PremeĹˇaj</a></li>
                     <li><a href="#" onclick="ZaporedjeStopenj()" style="color:black">Izpis zaporedja stopenj</a></li>
                     <li><a href="#" onclick="ShraniGrafKotSliko()" style="color:black">Shrani graf kot sliko</a></li>
                     <li><a href="#" onclick="IzrekPosaDiraOrej()" style="color:black">Izreki Posa, Diraca in Oreja</a></li>
@@ -2259,14 +2259,14 @@
         </ul>
         <ul id="MenuZoomInOut">
             <li>
-                <a href="#" style="color:black">Približaj/odmakni pogled</a>
+                <a href="#" style="color:black">PribliĹľaj/odmakni pogled</a>
                 <ul>
-                    <li><a href="#" onclick="Zoom('+')" style="color:black">Približaj</a></li>
+                    <li><a href="#" onclick="Zoom('+')" style="color:black">PribliĹľaj</a></li>
                     <li><a href="#" onclick="Zoom('-')" style="color:black">Odmakni</a></li>
                 </ul>
         </ul>
 
-        <b><button id="ButtonNewVertex" style="margin-top:16px; margin-left:20px; width:140px;" onclick="addVertex()" class="css3button">Nova vozlišča</button></b><br>
+        <b><button id="ButtonNewVertex" style="margin-top:16px; margin-left:20px; width:140px;" onclick="addVertex()" class="css3button">Nova vozliĹˇÄŤa</button></b><br>
         <button id="ButtonNewEdge" style="margin-left:20px; width:140px;" onclick="addEdge()" class="css3button">Nove povezave</button><br>
         <button id="ButtonRazdaljnaParticija" style="margin-top:25px; margin-left:20px; width:140px;" onclick="D_partition_A()" class="css3button">Razdaljna particija</button><br>
         <button id="ButtonAut" style="margin-left:20px; width:140px;" onclick="Aut()" class="css3button">Avtomorfizem</button><br>
@@ -2300,11 +2300,11 @@
 
         <input type="file" style="visibility:hidden;position:absolute;top:-50;left:-50" id="fileinput" />
 
-        <button id="ButtonRename" style="margin-left:20px; width:140px;" onclick="addContent()" class="css3button">Preimenuj vozlišča</button><br>
-        <button id="ButtonOzina" style="margin-left:20px; margin-top:0px; width:140px;" onclick="OzinaGrafaToggle()" class="css3button">Ožina grafa</button><br>
+        <button id="ButtonRename" style="margin-left:20px; width:140px;" onclick="addContent()" class="css3button">Preimenuj vozliĹˇÄŤa</button><br>
+        <button id="ButtonOzina" style="margin-left:20px; margin-top:0px; width:140px;" onclick="OzinaGrafaToggle()" class="css3button">OĹľina grafa</button><br>
         <button id="ButtonPremer" style="margin-left:20px; margin-top:0px; width:140px;" onclick="PremerGrafaToggle()" class="css3button">Premer grafa</button><br>
-        <button id="ButtonHelp" style="margin-left:20px; margin-top:0px; width:140px;" onclick="document.getElementById('POMOC').click()" class="css3button">Pomoč</button><br>
-        <a href="Pomoč_Help.pdf" id="POMOC" target="_blank"></a>
+        <button id="ButtonHelp" style="margin-left:20px; margin-top:0px; width:140px;" onclick="document.getElementById('POMOC').click()" class="css3button">PomoÄŤ</button><br>
+        <a href="PomoÄŤ_Help.pdf" id="POMOC" target="_blank"></a>
 
     </div>
     <div id="content">
@@ -2314,14 +2314,14 @@
 
     <textarea readonly style="margin-left: 192px;" id="area">
         Pozdravljeni!
-        Za najboljše delovanje aplikacije uporabite najnovejšo različico brskalnika Google Chrome. Hvala in upam, da bo aplikacija zadovoljila vaše potrebe!
+        Za najboljĹˇe delovanje aplikacije uporabite najnovejĹˇo razliÄŤico brskalnika Google Chrome. Hvala in upam, da bo aplikacija zadovoljila vaĹˇe potrebe!
 
-        ~Luka Jurković
+        ~Luka JurkoviÄ‡
     </textarea>
 
 
 
-    <center><h4>Copyright © Luka Jurkovic</h4></center>
+    <center><h4>Copyright Â© Luka Jurkovic</h4></center>
 
 
 
